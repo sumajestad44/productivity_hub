@@ -7,10 +7,10 @@ class TaskBase(BaseModel):
 	description: str | None = None
 
 class TaskCreate(TaskBase):
-    	title: str
-    	description: Optional[str] = None
-    	due_date: date | None = None
-    	priority: Optional[str] = None
+	title: str
+	description: Optional[str] = None
+	due_date: date | None = None
+	priority: Optional[str] = None
 
 class TaskResponse(TaskBase):
 	id: int

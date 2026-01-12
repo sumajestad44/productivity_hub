@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from ..db import get_db
 from .. import models, schemas
@@ -22,5 +22,5 @@ def create_reminder(reminder: schemas.ReminderCreate, db: Session = Depends(get_
 def get_reminder(reminder_id: int, db: Session = Depends(get_db)):
 	reminder = db.query(models.Reminder).filter(models.Reminder.id == reminder_id).first()
 	if reminder is None:
-		 raise HTTPException(status_code=404, detail="Reminder not found")
+		raise HTTPException(status_code=404, detail="Reminder not found")
 	return reminder
