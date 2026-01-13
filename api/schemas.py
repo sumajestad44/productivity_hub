@@ -36,6 +36,7 @@ class ActivityResponse(ActivityBase):
 class ReminderBase(BaseModel):
 	message: str
 	remind_at: datetime
+	completed: bool = False
 
 class ReminderCreate(ReminderBase):
 	pass
